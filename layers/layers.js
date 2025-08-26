@@ -2,6 +2,7 @@ var wms_layers = [];
 
 var lyr_OpenStreetMap = new ol.layer.Tile({
             'title': 'OpenStreetMap',
+            'baseLayer':'true',
             'opacity': 1.000000,
             
             
@@ -19,8 +20,8 @@ var lyr_NMINSPIRE = new ol.layer.Vector({
     style: style_NMINSPIRE,
     permalink: "NMINSPIRE",
     popuplayertitle: 'NM INSPIRE',
-    creationdate: '2025-08-26 07:08:28',
-    interactive: true,
+    creationdate: '2025-08-26 14:41:19',
+    interactive: false,
 });
 function load_NMINSPIRE_data() {
     var format_NMINSPIRE = new ol.format.GeoJSON();
@@ -50,7 +51,7 @@ var lyr_NMOAs386387388 = new ol.layer.Vector({
     style: style_NMOAs386387388,
     permalink: "NMOAs386387388",
     popuplayertitle: 'NM OAs 386,387, 388',
-    creationdate: '2025-08-26 07:08:28',
+    creationdate: '2025-08-26 14:41:19',
     interactive: false,
 });
 function load_NMOAs386387388_data() {
@@ -131,29 +132,17 @@ var group_BOUNDARIES = new ol.layer.Group({
                                 layers: [lyr_NMOAs386387388,],
                                 openInLayerSwitcher: true,
                                 title: 'BOUNDARIES'});
-var group_NMOS10kFiles = new ol.layer.Group({
-                                layers: [],
-                                openInLayerSwitcher: true,
-                                title: 'NM OS 10k Files'});
-var group_NMOS51kFiles = new ol.layer.Group({
-                                layers: [],
-                                openInLayerSwitcher: true,
-                                title: 'NM OS-5 1k Files'});
-var group_BaseMaps = new ol.layer.Group({
-                                layers: [],
-                                openInLayerSwitcher: true,
-                                title: 'Base Maps'});
-var group_NMAreaTopographyEtc = new ol.layer.Group({
-                                layers: [],
-                                openInLayerSwitcher: true,
-                                title: 'NM Area Topography Etc'});
-var group_LAYERS = new ol.layer.Group({
+var group_LOCATIONS = new ol.layer.Group({
                                 layers: [lyr_NMINSPIRE,],
                                 openInLayerSwitcher: true,
-                                title: 'LAYERS'});
+                                title: 'LOCATIONS'});
+var group_BaseMaps = new ol.layer.Group({
+                                layers: [lyr_OpenStreetMap,],
+                                openInLayerSwitcher: true,
+                                title: 'Base Maps'});
 
 lyr_OpenStreetMap.setVisible(true);lyr_NMINSPIRE.setVisible(true);lyr_NMOAs386387388.setVisible(true);
-var layersList = [lyr_OpenStreetMap,group_LAYERS,group_BOUNDARIES];
+var layersList = [group_BaseMaps,group_LOCATIONS,group_BOUNDARIES];
 lyr_NMINSPIRE.set('fieldAliases', {'gml_id': 'gml_id', 'INSPIREID': 'INSPIREID', 'LABEL': 'LABEL', 'NATIONALCADASTRALREFERENCE': 'NATIONALCADASTRALREFERENCE', 'VALIDFROM': 'VALIDFROM', 'BEGINLIFESPANVERSION': 'BEGINLIFESPANVERSION', });
 lyr_NMOAs386387388.set('fieldAliases', {'FID': 'FID', 'OA21CD': 'OA21CD', 'LSOA21CD': 'LSOA21CD', 'LSOA21NM': 'LSOA21NM', 'LSOA21NMW': 'LSOA21NMW', 'BNG_E': 'BNG_E', 'BNG_N': 'BNG_N', 'LAT': 'LAT', 'LONG': 'LONG', 'GlobalID': 'GlobalID', });
 lyr_NMINSPIRE.set('fieldImages', {'gml_id': 'TextEdit', 'INSPIREID': 'Range', 'LABEL': 'Range', 'NATIONALCADASTRALREFERENCE': 'Range', 'VALIDFROM': 'TextEdit', 'BEGINLIFESPANVERSION': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});

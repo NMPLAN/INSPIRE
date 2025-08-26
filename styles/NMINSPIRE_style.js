@@ -7,7 +7,7 @@ var style_NMINSPIRE = function(feature, resolution){
     };
     var labelText = "";
     var labelFont = "13.0px \'Open Sans\', sans-serif";
-    var labelFill = "#323232";
+    var labelFill = "#363de5";
     var bufferColor = "";
     var bufferWidth = 0;
     var textAlign = "left";
