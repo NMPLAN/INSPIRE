@@ -2,7 +2,6 @@ var wms_layers = [];
 
 var lyr_OpenStreetMap = new ol.layer.Tile({
             'title': 'OpenStreetMap',
-            'baseLayer':'true',
             'opacity': 1.000000,
             
             
@@ -20,7 +19,7 @@ var lyr_NMINSPIRE = new ol.layer.Vector({
     style: style_NMINSPIRE,
     permalink: "NMINSPIRE",
     popuplayertitle: 'NM INSPIRE',
-    creationdate: '2025-08-26 06:21:37',
+    creationdate: '2025-08-26 07:08:28',
     interactive: true,
 });
 function load_NMINSPIRE_data() {
@@ -51,7 +50,7 @@ var lyr_NMOAs386387388 = new ol.layer.Vector({
     style: style_NMOAs386387388,
     permalink: "NMOAs386387388",
     popuplayertitle: 'NM OAs 386,387, 388',
-    creationdate: '2025-08-26 06:21:37',
+    creationdate: '2025-08-26 07:08:28',
     interactive: false,
 });
 function load_NMOAs386387388_data() {
@@ -132,10 +131,6 @@ var group_BOUNDARIES = new ol.layer.Group({
                                 layers: [lyr_NMOAs386387388,],
                                 openInLayerSwitcher: true,
                                 title: 'BOUNDARIES'});
-var group_NMAreaTopographyEtc = new ol.layer.Group({
-                                layers: [],
-                                openInLayerSwitcher: true,
-                                title: 'NM Area Topography Etc'});
 var group_NMOS10kFiles = new ol.layer.Group({
                                 layers: [],
                                 openInLayerSwitcher: true,
@@ -148,6 +143,10 @@ var group_BaseMaps = new ol.layer.Group({
                                 layers: [],
                                 openInLayerSwitcher: true,
                                 title: 'Base Maps'});
+var group_NMAreaTopographyEtc = new ol.layer.Group({
+                                layers: [],
+                                openInLayerSwitcher: true,
+                                title: 'NM Area Topography Etc'});
 var group_LAYERS = new ol.layer.Group({
                                 layers: [lyr_NMINSPIRE,],
                                 openInLayerSwitcher: true,
@@ -159,7 +158,7 @@ lyr_NMINSPIRE.set('fieldAliases', {'gml_id': 'gml_id', 'INSPIREID': 'INSPIREID',
 lyr_NMOAs386387388.set('fieldAliases', {'FID': 'FID', 'OA21CD': 'OA21CD', 'LSOA21CD': 'LSOA21CD', 'LSOA21NM': 'LSOA21NM', 'LSOA21NMW': 'LSOA21NMW', 'BNG_E': 'BNG_E', 'BNG_N': 'BNG_N', 'LAT': 'LAT', 'LONG': 'LONG', 'GlobalID': 'GlobalID', });
 lyr_NMINSPIRE.set('fieldImages', {'gml_id': 'TextEdit', 'INSPIREID': 'Range', 'LABEL': 'Range', 'NATIONALCADASTRALREFERENCE': 'Range', 'VALIDFROM': 'TextEdit', 'BEGINLIFESPANVERSION': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_NMOAs386387388.set('fieldImages', {'FID': 'TextEdit', 'OA21CD': 'TextEdit', 'LSOA21CD': 'TextEdit', 'LSOA21NM': 'TextEdit', 'LSOA21NMW': 'TextEdit', 'BNG_E': 'Range', 'BNG_N': 'Range', 'LAT': 'TextEdit', 'LONG': 'TextEdit', 'GlobalID': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
-lyr_NMINSPIRE.set('fieldLabels', {'gml_id': 'no label', 'INSPIREID': 'inline label - visible with data', 'LABEL': 'no label', 'NATIONALCADASTRALREFERENCE': 'no label', 'VALIDFROM': 'no label', 'BEGINLIFESPANVERSION': 'no label', });
+lyr_NMINSPIRE.set('fieldLabels', {'gml_id': 'no label', 'INSPIREID': 'inline label - visible with data', 'LABEL': 'no label', 'NATIONALCADASTRALREFERENCE': 'hidden field', 'VALIDFROM': 'no label', 'BEGINLIFESPANVERSION': 'no label', });
 lyr_NMOAs386387388.set('fieldLabels', {'FID': 'no label', 'OA21CD': 'no label', 'LSOA21CD': 'no label', 'LSOA21NM': 'no label', 'LSOA21NMW': 'no label', 'BNG_E': 'no label', 'BNG_N': 'no label', 'LAT': 'no label', 'LONG': 'no label', 'GlobalID': 'no label', });
 lyr_NMOAs386387388.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
